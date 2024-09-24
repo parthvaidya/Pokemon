@@ -31,20 +31,26 @@ int main() {
     cin >> choice;
 
     // Step 4: Confirm the Choice
-    if (choice == 1) {
-        cout << "You chose Bulbasaur! A wise choice.\n";
-    } else if (choice == 2) {
-        cout << "You chose Charmander! A fiery choice.\n";
-    } else if (choice == 3) {
-        cout << "You chose Squirtle! A cool choice.\n";
-    } else {
-        cout << "Invalid choice. Please restart the game.\n";
-        exit(0);
+   
+    switch (choice) {
+        case 1:
+            cout << "Professor Oak: A fine choice! Bulbasaur is always ready to grow on you!\n";
+            break;
+        case 2:
+            cout << "Professor Oak: A fiery choice! Charmander is yours!\n";
+            break;
+        case 3:
+            cout << "Professor Oak: Splendid! Squirtle will keep you cool under pressure!\n";
+            break;
+        default:
+            // Step 2: Surprise with Pikachu for an Invalid Choice
+            cout << "Professor Oak: Hmm, that doesn't seem right. Let me choose for you… Just kidding! Let's go with Pikachu, the surprise guest!\n";
+            break;
     }
 
     cout << "\nProfessor Oak: \n";
-    cout << "\"Ah, an excellent choice! But beware " <<player_name << ", this is only the beginning.\"\n";
-    cout << "\"Your journey is about to unfold. Now lets see if you have got what it takes to keep going!\"\n";
+    cout << "\"Ah, an excellent choice! But beware " << player_name << ", this is only the beginning.\"\n";
+    cout << "\"Your journey is about to unfold. Now let’s see if you have what it takes to keep going!\"\n";
     cout << "\"Good luck, and remember… Choose wisely!\"\n";
 
     return 0;
