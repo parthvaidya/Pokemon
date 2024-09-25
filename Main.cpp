@@ -21,7 +21,16 @@ public:
     PokemonType type;
     int health;
 
-    
+    // Default constructor
+    Pokemon() : name("Pikachu"), type(PokemonType::ELECTRIC), health(10) {}
+
+    // Parameterized constructor
+    Pokemon(string p_name, PokemonType p_type, int p_health) 
+        : name(p_name), type(p_type), health(p_health) {}
+
+    // Copy constructor
+    Pokemon(const Pokemon& other) 
+        : name(other.name), type(other.type), health(other.health) {}
 
     // Convert enum type to string for display purposes
     string getTypeAsString() const {
@@ -40,31 +49,34 @@ public:
     string name;
     Pokemon chosenPokemon;
 
+    // Default constructor
+    Player() : name("Trainer"), chosenPokemon() {} // Calls the default constructor of Pokemon
+
+    // Parameterized constructor
+    Player(string p_name, Pokemon p_chosenPokemon) 
+        : name(p_name), chosenPokemon(p_chosenPokemon) {}
+
+    // Copy constructor
+    Player(const Player& other) 
+        : name(other.name), chosenPokemon(other.chosenPokemon) {}
+
     void choosePokemon(PokemonChoice choice) {
         switch (choice) {
             case PokemonChoice::Charmander:
-                chosenPokemon.name = "Charmander";
-                chosenPokemon.type = PokemonType::FIRE;
-                chosenPokemon.health = 39;
+                chosenPokemon = Pokemon("Charmander", PokemonType::FIRE, 39);
                 cout << "A fiery choice! Charmander is yours!\n";
                 break;
             case PokemonChoice::Bulbasaur:
-                chosenPokemon.name = "Bulbasaur";
-                chosenPokemon.type = PokemonType::GRASS;
-                chosenPokemon.health = 45;
+                chosenPokemon = Pokemon("Bulbasaur", PokemonType::GRASS, 45);
                 cout << "A fine choice! Bulbasaur is always ready to grow on you!\n";
                 break;
             case PokemonChoice::Squirtle:
-                chosenPokemon.name = "Squirtle";
-                chosenPokemon.type = PokemonType::WATER;
-                chosenPokemon.health = 44;
+                chosenPokemon = Pokemon("Squirtle", PokemonType::WATER, 44);
                 cout << "Splendid! Squirtle will keep you cool under pressure!\n";
                 break;
             default:
-                chosenPokemon.name = "Pikachu";
-                chosenPokemon.type = PokemonType::ELECTRIC;
-                chosenPokemon.health = 40;
-                cout << "Pikachu one my best from rest \n";
+                chosenPokemon = Pokemon("Pikachu", PokemonType::ELECTRIC, 40);
+                cout << "Pikachu is the best from the rest.\n";
                 break;
         }
     }
@@ -78,13 +90,13 @@ public:
         cout << "Professor Oak: Hello there! Welcome to the world of Pokémon!\n";
         cout << "Professor Oak: My name is " << name << ". People call me the Pokémon Professor!\n";
         cout << "Professor Oak: But enough about me. Let's talk about you!\n";
-        cout << "Professor Oak: First, tell me, whats your name?\n";
+        cout << "Professor Oak: First, tell me, what's your name?\n";
         cin >> player.name;
         cout << "Professor Oak: Ah, " << player.name << "! What a fantastic name!\n";
     }
 
     void offerPokemonChoices(Player& player) {
-        cout << "Professor Oak: I have three Pokémon here with me. Theyre all quite feisty!\n";
+        cout << "Professor Oak: I have three Pokemon here with me. They're all quite feisty!\n";
         cout << "1. Charmander - The fire type. A real hothead!\n";
         cout << "2. Bulbasaur - The grass type. Calm and collected!\n";
         cout << "3. Squirtle - The water type. Cool as a cucumber!\n";
@@ -113,7 +125,6 @@ int main() {
     // Print the name of the player and the name of the Pokémon they chose
     cout << player.name << " chose " << player.chosenPokemon.name << "!\n";
     cout << "Pokemon Type: " << player.chosenPokemon.getTypeAsString() << "\n";
-    
 
     return 0;
 }
