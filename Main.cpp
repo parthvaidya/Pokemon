@@ -11,6 +11,16 @@ enum class PokemonChoice {
     Pikachu 
 };
 
+void waitForEnter() {
+        cout << "(Press Enter to continue...)\n";
+        cin.ignore(); // Ignore the newline from previous input
+        cin.get();    
+    }
+
+    // Function to clear the console
+    void clearConsole() {
+        system("clear"); 
+    }
 
 
 class Pokemon {
@@ -98,7 +108,7 @@ public:
     }
 
     void offerPokemonChoices(Player& player) {
-        cout << "Professor Oak: I have three Pokemon here with me. They're all quite feisty!\n";
+        cout << "Professor Oak: I have three Pokemon here with me. They're all quite feisty!";
         waitForEnter();
         cout << "1. Charmander - The fire type. A real hothead!\n";
         cout << "2. Bulbasaur - The grass type. Calm and collected!\n";
@@ -145,16 +155,7 @@ public:
     }
 
     // Function to pause execution and wait for Enter key
-    void waitForEnter() {
-        cout << "(Press Enter to continue...)\n";
-        cin.ignore(); // Ignore the newline from previous input
-        cin.get();    
-    }
-
-    // Function to clear the console
-    void clearConsole() {
-        system("clear"); 
-    }
+    
 
 };
 
@@ -196,7 +197,7 @@ void gameLoop(Player& player) {
         
         if (keepPlaying) {
             ProfessorOak professor;
-            professor.waitForEnter();
+            waitForEnter();
         }
     }
 }
@@ -211,7 +212,7 @@ int main() {
     // Professor Oak greets the player and offers Pokémon choices
     professor.greetPlayer(player);
     professor.offerPokemonChoices(player);
-    professor.clearConsole(); // Clear the console before explaining the main quest
+    clearConsole(); // Clear the console before explaining the main quest
     professor.explainMainQuest(player);
 
     // Print the name of the player and the name of the Pokémon they chose
