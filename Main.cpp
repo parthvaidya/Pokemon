@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
+#include "PokemonType.hpp"
 using namespace std;
 
 enum class PokemonChoice {
@@ -10,12 +11,7 @@ enum class PokemonChoice {
     Pikachu 
 };
 
-enum class PokemonType {
-    FIRE,
-    GRASS,
-    WATER,
-    ELECTRIC
-};
+
 
 class Pokemon {
 public:
