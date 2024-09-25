@@ -1,9 +1,17 @@
 #include <iostream>
 using namespace std;
 
+enum PokemonChoose {
+    Charmander,
+    Bulbasaur,
+    Squirtle,
+    InvalidChoice
+};
+
 int main() {
 
     string player_name;
+    PokemonChoose chosen_pokemon = InvalidChoice;
 
     //  Greet the Player
     cout << "Professor Oak: \n";
@@ -34,24 +42,28 @@ int main() {
    
     switch (choice) {
         case 1:
+            chosen_pokemon = Bulbasaur;
             cout << "Professor Oak: A fine choice! Bulbasaur is always ready to grow on you!\n";
             break;
         case 2:
+            chosen_pokemon = Charmander;
             cout << "Professor Oak: A fiery choice! Charmander is yours!\n";
             break;
         case 3:
+            chosen_pokemon = Squirtle;
             cout << "Professor Oak: Splendid! Squirtle will keep you cool under pressure!\n";
             break;
         default:
-            // Step 2: Surprise with Pikachu for an Invalid Choice
+            chosen_pokemon = InvalidChoice;
             cout << "Professor Oak: Hmm, that doesn't seem right. Let me choose for you… Just kidding! Let's go with Pikachu, the surprise guest!\n";
             break;
     }
 
     cout << "\nProfessor Oak: \n";
-    cout << "\"Ah, an excellent choice! But beware " << player_name << ", this is only the beginning.\"\n";
-    cout << "\"Your journey is about to unfold. Now let’s see if you have what it takes to keep going!\"\n";
-    cout << "\"Good luck, and remember… Choose wisely!\"\n";
+    cout << "Professor Oak: " << (chosen_pokemon == Charmander ? "Charmander - The fire type. A real hothead!" : chosen_pokemon == Bulbasaur ? "Bulbasaur - The grass type. Calm and collected!" : "Squirtle - The water type. Cool as a cucumber!")
+              << " and you, " << player_name << ", are going to be the best of friends!\n";
+    cout << "\"Your journey is about to unfold. Now lets see if you have what it takes to keep going!\"\n";
+    cout << "\"Good luck, and remember my friend Choose wisely!\"\n";
 
     return 0;
 }
