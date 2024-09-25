@@ -2,6 +2,7 @@
 #include "Utility.hpp"
 #include <iostream>
 
+//refactorings 
 Pokemon::Pokemon() : name("Pikachu"), type(PokemonType::ELECTRIC), health(10) {}
 
 Pokemon::Pokemon(std::string p_name, PokemonType p_type, int p_health) 
