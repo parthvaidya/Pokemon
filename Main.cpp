@@ -129,7 +129,7 @@ int main() {
 
     professor.greetPlayer(player);
     professor.offerPokemonChoices(player);
-    Utility::clearConsole();
+    Utility::clearConsole(); //clear console
     professor.explainMainQuest(player);
 
     cout << player.name << " chose " << player.chosenPokemon.name << "!\n";
