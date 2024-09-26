@@ -1,12 +1,17 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
-#include "PokemonType.hpp"
+
 #include "PokemonChoice.hpp"
 #include "Player.hpp"
 #include "Pokemon.hpp"
 #include "Utility.hpp"
 using namespace std;
+
+
+
+
+enum class PokemonType;
 
 class ProfessorOak {
 public:

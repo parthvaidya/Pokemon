@@ -7,6 +7,7 @@
 #include "Utility.hpp"
 #include "Pokemon.hpp"
 
+class Pokemon;
 class Player {
 public:
     std::string name;

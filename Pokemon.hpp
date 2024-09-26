@@ -4,6 +4,8 @@
 #include <string>
 #include "PokemonType.hpp"
 
+enum class PokemonType;
+
 class Pokemon {
 public:
     std::string name;
