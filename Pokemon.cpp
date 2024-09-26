@@ -2,7 +2,7 @@
 #include "Utility.hpp"
 #include <iostream>
 
-enum class PokemonType;
+
 //refactorings 
 Pokemon::Pokemon() : name("Pikachu"), type(PokemonType::ELECTRIC), health(10) {}
 

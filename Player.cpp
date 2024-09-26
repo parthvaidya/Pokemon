@@ -10,8 +10,10 @@ Player::Player(std::string p_name, Pokemon p_chosenPokemon)
 Player::Player(const Player& other) 
     : name(other.name), chosenPokemon(other.chosenPokemon) {}
 
+
 void Player::choosePokemon(PokemonChoice choice) {
-    switch (choice) {
+    // Typecast choice to PokemonChoice enum
+    switch (static_cast<PokemonChoice>(choice)) {
         case PokemonChoice::Charmander:
             chosenPokemon = Pokemon("Charmander", PokemonType::FIRE, 39);
             std::cout << "A fiery choice! Charmander is yours!\n";
