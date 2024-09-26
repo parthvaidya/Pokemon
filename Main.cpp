@@ -6,10 +6,21 @@
 #include "Player.hpp"
 #include "Utility.hpp"
 #include "grass.hpp"  
+#include "WildEncounterManager.hpp"
 using namespace std;
 
 
+Grass forestGrass = {
+    "Forest",
+    {{"Pidgey", PokemonType::NORMAL, 40}, {"Caterpie", PokemonType::BUG, 35}},
+    70
+};
 
+Grass caveGrass = {
+    "Cave",
+    {{"Zubat", PokemonType::NORMAL, 35}, {"Charlizard", PokemonType::FIRE, 50}},
+    85
+};
 
 enum class PokemonType;
 
@@ -83,6 +94,10 @@ public:
 
 void gameLoop(Player& player) {
     bool keepPlaying = true;
+    WildEncounterManager encounterManager;  // Create an encounter manager
+    
+
+    WildPokemon encounteredPokemon{"", PokemonType::NORMAL, 0}; 
 
     while (keepPlaying) {
         int choice;
@@ -98,7 +113,9 @@ void gameLoop(Player& player) {
         Utility::clearInputBuffer(); 
         switch (choice) {
             case 1:
-                cout << "You look around... but all the wild Pokemon are on vacation. Maybe try again later?\n";
+                
+                encounteredPokemon = encounterManager.getRandomPokemonFromGrass(forestGrass);
+                cout << "You encountered a wild " << encounteredPokemon.name << "!\n";
                 break;
             case 2:
                 cout << "You head to the PokeCenter, but Nurse Joy is out on a coffee break. Guess your Pokemon will have to tough it out for now!\n";

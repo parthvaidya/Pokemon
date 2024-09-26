@@ -25,16 +25,7 @@ struct Grass {
 };
 
 // Create instances of Grass
-Grass forestGrass = {
-    "Forest",
-    {{"Pidgey", PokemonType::NORMAL, 40}, {"Caterpie", PokemonType::BUG, 35}},
-    70
-};
-
-Grass caveGrass = {
-    "Cave",
-    {{"Zubat", PokemonType::ELECTRIC, 30}, {"Geodude", PokemonType::FIRE, 50}},
-    80
-};
+extern Grass forestGrass;
+extern Grass caveGrass;
 
 #endif
