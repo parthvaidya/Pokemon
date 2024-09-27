@@ -1,4 +1,5 @@
 #include "WildEncounterManager.hpp"
+#include "Pokemon.hpp"
 #include <ctime>  // For time()
 
 // Implement the method to get a random Pokémon from grass
@@ -10,3 +11,4 @@ WildPokemon WildEncounterManager::getRandomPokemonFromGrass(const Grass& grass) 
     int randomIndex = std::rand() % grass.wildPokemonList.size();
     return grass.wildPokemonList[randomIndex];
 }
+

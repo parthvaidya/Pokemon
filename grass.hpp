@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 #include "PokemonType.hpp"  // Include this for the PokemonType enum
-
+#include "Pokemon.hpp"
 using namespace std;
 
 // Struct to represent wild Pokémon
@@ -15,6 +15,18 @@ struct WildPokemon {
 
     WildPokemon(const string& p_name, PokemonType p_type, int p_health)
         : name(p_name), type(p_type), health(p_health) {}
+    
+    bool isFainted() const {
+        return health <= 0;
+    }
+
+    // Attack method for wild Pokémon
+    void attack(Pokemon& target) {
+        // Example attack logic; adjust based on your Pokémon class
+        int damage = 10; // Set some fixed damage or calculate based on type advantages
+        target.health -= damage; // Reduce health of the target Pokémon
+        cout << name << " attacks " << target.name << " for " << damage << " damage!" << endl;
+    }
 };
 
 // Struct to represent the Grass patch
