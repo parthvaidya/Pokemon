@@ -3,6 +3,7 @@
 
 #include <string>
 #include <vector>
+#include <iostream>
 #include "PokemonType.hpp"  // Include this for the PokemonType enum
 #include "Pokemon.hpp"
 using namespace std;
