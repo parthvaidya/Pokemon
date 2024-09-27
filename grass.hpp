@@ -5,7 +5,8 @@
 #include <vector>
 #include "PokemonType.hpp"  // Include this for the PokemonType enum
 #include "Pokemon.hpp"
-using namespace std;
+
+#include <iostream>
 
 // Struct to represent wild Pokémon
 struct WildPokemon {
@@ -25,7 +26,7 @@ struct WildPokemon {
         // Example attack logic; adjust based on your Pokémon class
         int damage = 10; // Set some fixed damage or calculate based on type advantages
         target.health -= damage; // Reduce health of the target Pokémon
-        cout << name << " attacks " << target.name << " for " << damage << " damage!" << endl;
+        std::cout << name << " attacks " << target.name << " for " << damage << " damage!" << endl;
     }
 };
 

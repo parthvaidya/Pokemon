@@ -7,6 +7,7 @@
 #include "Utility.hpp"
 #include "grass.hpp"  
 #include "WildEncounterManager.hpp"
+#include "BattleManager.hpp"
 using namespace std;
 
 
@@ -141,7 +142,7 @@ void battle(Player& player, WildPokemon& wildPokemon) {
 void gameLoop(Player& player) {
     bool keepPlaying = true;
     WildEncounterManager encounterManager;  // Create an encounter manager
-    
+    BattleManager battleManager;
 
     WildPokemon encounteredPokemon{"", PokemonType::NORMAL, 0}; 
 
@@ -165,7 +166,8 @@ void gameLoop(Player& player) {
                 Utility::waitForEnter();
 
                 // Start the battle
-                battle(player, encounteredPokemon);
+                // battle(player, encounteredPokemon);
+                 battleManager.battle(player, encounteredPokemon);
                 break;
             case 2:
                 cout << "You head to the PokeCenter, but Nurse Joy is out on a coffee break. Guess your Pokemon will have to tough it out for now!\n";

@@ -2,6 +2,7 @@
 #define PLAYER_HPP
 
 #include <string>
+#include <iostream>
 #include "PokemonType.hpp"
 #include "PokemonChoice.hpp"
 #include "Utility.hpp"

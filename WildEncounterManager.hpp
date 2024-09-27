@@ -4,6 +4,7 @@
 #include "grass.hpp"  // Include the Grass header
 #include <vector>
 #include <cstdlib>
+#include <iostream>
 
 // Declare grass areas as extern variables
 extern Grass forestGrass;
