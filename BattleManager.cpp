@@ -1,8 +1,16 @@
 #include "BattleManager.hpp"
+#include "BattleState.hpp"
 #include <iostream>
 using namespace std;
 
+BattleManager::BattleManager() : battleState(nullptr) {}
 
+// Destructor
+BattleManager::~BattleManager() {
+    if (battleState != nullptr) {
+        delete battleState;
+    }
+}
 
 
 void BattleManager::battle(Player& player, WildPokemon& wildPokemon) {
@@ -59,3 +67,6 @@ void BattleManager::handleBattleOutcome(Player& player, bool playerWon) {
         // Optionally handle player loss here
     }
 }
+
+
+
