@@ -8,22 +8,25 @@
 #include "grass.hpp"  
 #include "WildEncounterManager.hpp"
 #include "BattleManager.hpp"
+#include "Pikachu.hpp"
 using namespace std;
 
 
-Grass forestGrass = {
-    "Forest",
-    {{"Pidgey", PokemonType::NORMAL, 40}, {"Caterpie", PokemonType::BUG, 35}},
-    70
-};
 
-Grass caveGrass = {
-    "Cave",
-    {{"Zubat", PokemonType::NORMAL, 35}, {"Charlizard", PokemonType::FIRE, 50}},
-    85
-};
 
 enum class PokemonType;
+
+Grass forestGrass("Forest", 70);
+Grass caveGrass("Cave", 85);
+
+// Populate forestGrass with Pidgey and Caterpie
+void initializeGrass() {
+    // forestGrass.addPokemon(make_unique<Pidgey>());
+    // forestGrass.addPokemon(make_unique<Caterpie>());
+
+    // caveGrass.addPokemon(make_unique<Zubat>());
+    caveGrass.addPokemon(make_unique<Pikachu>()); // Assuming "Charlizard" was a typo
+}
 
 class ProfessorOak {
 public:
@@ -99,7 +102,7 @@ void gameLoop(Player& player) {
     WildEncounterManager encounterManager;  // Create an encounter manager
     
     BattleManager battleManager;
-    WildPokemon encounteredPokemon{"", PokemonType::NORMAL, 0}; 
+    unique_ptr<Pokemon> encounteredPokemon = nullptr;
 
     while (keepPlaying) {
         int choice;
@@ -117,11 +120,15 @@ void gameLoop(Player& player) {
             case 1:
                 
                 encounteredPokemon = encounterManager.getRandomPokemonFromGrass(forestGrass);
-                cout << "You encountered a wild " << encounteredPokemon.name << "!\n";
-                Utility::waitForEnter();
+                if (encounteredPokemon) {
+                    cout << "You encountered a wild " << encounteredPokemon->name << "!\n";
+                    Utility::waitForEnter();
 
-                // Start the battle
-                battleManager.battle(player, encounteredPokemon);
+                    // Start the battle
+                    battleManager.battle(player, *encounteredPokemon);
+                } else {
+                    cout << "No Pokémon to encounter here.\n";
+                }
                 break;
             case 2:
                 cout << "You head to the PokeCenter, but Nurse Joy is out on a coffee break. Guess your Pokemon will have to tough it out for now!\n";
