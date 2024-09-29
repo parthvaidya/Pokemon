@@ -3,7 +3,6 @@
 
 #include "grass.hpp"  // Include the Grass header
 #include <vector>
-#include <memory>
 #include <cstdlib>
 
 // Declare grass areas as extern variables
@@ -13,8 +12,7 @@ extern Grass caveGrass;
 class WildEncounterManager {
 public:
     // Method to get a random Pokémon from the grass
-    // WildPokemon getRandomPokemonFromGrass(const Grass& grass);
-    unique_ptr<Pokemon> getRandomPokemonFromGrass(const Grass& grass);
+    WildPokemon getRandomPokemonFromGrass(const Grass& grass);
 };
 
 #endif

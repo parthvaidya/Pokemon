@@ -13,7 +13,7 @@ BattleManager::~BattleManager() {
 }
 
 
-void BattleManager::battle(Player& player, Pokemon& wildPokemon) {
+void BattleManager::battle(Player& player, WildPokemon& wildPokemon) {
     cout << "A wild " << wildPokemon.name << " appears!\n";
     Utility::waitForEnter();
 

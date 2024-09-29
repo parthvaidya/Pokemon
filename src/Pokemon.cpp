@@ -2,7 +2,6 @@
 #include "Utility.hpp"
 #include "grass.hpp"
 #include <iostream>
-#include <memory>
 
 
 //refactorings 
@@ -38,8 +37,6 @@ std::string Pokemon::getTypeAsString() const {
         case PokemonType::GRASS: return "Grass";
         case PokemonType::WATER: return "Water";
         case PokemonType::ELECTRIC: return "Electric";
-        case PokemonType::NORMAL: return "Normal";
-        case PokemonType::BUG: return "Bug";
         default: return "Unknown";
     }
 }

@@ -1,49 +1,34 @@
 #include "Player.hpp"
 #include "Utility.hpp"
-#include "Pikachu.hpp"
-#include <memory>
 #include <iostream>
 
 Player::Player() : name("Trainer"), chosenPokemon() {}
 
-Player::Player(std::string p_name, std::unique_ptr<Pokemon> p_chosenPokemon)
-    : name(p_name), chosenPokemon(std::move(p_chosenPokemon)) {}
+Player::Player(std::string p_name, Pokemon p_chosenPokemon) 
+    : name(p_name), chosenPokemon(p_chosenPokemon) {}
 
-Player::Player(const Player& other)
-    : name(other.name), chosenPokemon(other.chosenPokemon->clone()) {}
+Player::Player(const Player& other) 
+    : name(other.name), chosenPokemon(other.chosenPokemon) {}
 
-// Player& Player::operator=(const Player& other) {
-//     if (this == &other)
-//         return *this;
-//     name = other.name;
-//     if (other.chosenPokemon)
-//         chosenPokemon = other.chosenPokemon->clone();
-//     else
-//         chosenPokemon = nullptr;
-//     return *this;
-// }
 
 void Player::choosePokemon(PokemonChoice choice) {
-    switch (choice) {
-        // case PokemonChoice::Pidgey:
-        //     chosenPokemon = std::make_unique<Pidgey>();
-        //     std::cout << "You chose Pidgey!\n";
-        //     break;
-        // case PokemonChoice::Caterpie:
-        //     chosenPokemon = std::make_unique<Caterpie>();
-        //     std::cout << "You chose Caterpie!\n";
-        //     break;
-        // case PokemonChoice::Zubat:
-        //     chosenPokemon = std::make_unique<Zubat>();
-        //     std::cout << "You chose Zubat!\n";
-            // break;
-        case PokemonChoice::Pikachu:
-            chosenPokemon = std::make_unique<Pikachu>();
-            std::cout << "You chose Pikachu!\n";
+    // Typecast choice to PokemonChoice enum
+    switch (static_cast<PokemonChoice>(choice)) {
+        case PokemonChoice::Charmander:
+            chosenPokemon = Pokemon("Charmander", PokemonType::FIRE, 39);
+            std::cout << "A fiery choice! Charmander is yours!\n";
+            break;
+        case PokemonChoice::Bulbasaur:
+            chosenPokemon = Pokemon("Bulbasaur", PokemonType::GRASS, 45);
+            std::cout << "A fine choice! Bulbasaur is always ready to grow on you!\n";
+            break;
+        case PokemonChoice::Squirtle:
+            chosenPokemon = Pokemon("Squirtle", PokemonType::WATER, 44);
+            std::cout << "Splendid! Squirtle will keep you cool under pressure!\n";
             break;
         default:
-            chosenPokemon = std::make_unique<Pikachu>();
-            std::cout << "Pikachu is the default choice.\n";
+            chosenPokemon = Pokemon("Pikachu", PokemonType::ELECTRIC, 40);
+            std::cout << "Pikachu is the best from the rest.\n";
             break;
     }
 }
