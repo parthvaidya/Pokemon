@@ -5,7 +5,10 @@ enum class PokemonChoice {
     Charmander = 1,
     Bulbasaur,
     Squirtle,
-    Pikachu
+    Pikachu,
+    Pidgey,
+    Zubat,
+    Caterpie
 };
 
 #endif

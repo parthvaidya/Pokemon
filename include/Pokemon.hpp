@@ -20,7 +20,7 @@ public:
     void takeDamage(int damage);
     bool isFainted() const;
     void attack(Pokemon& target);
-
+    
 };
 
 #endif

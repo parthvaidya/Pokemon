@@ -8,7 +8,8 @@ enum class PokemonType {
     WATER,
     ELECTRIC,
     NORMAL,
-    BUG
+    BUG,
+    FLYING
 };
 
 #endif

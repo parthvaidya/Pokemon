@@ -12,7 +12,11 @@ SRC = src/main.cpp \
       src/Player.cpp \
       src/Pokemon.cpp \
       src/WildEncounterManager.cpp \
-      src/BattleManager.cpp
+      src/BattleManager.cpp \
+      src/Pikachu.cpp \
+      src/Pidgey.cpp \
+      src/Zubat.cpp \
+      src/Caterpie.cpp
 
 # Object files
 OBJ = $(SRC:.cpp=.o)

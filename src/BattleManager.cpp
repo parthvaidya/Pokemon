@@ -1,5 +1,6 @@
 #include "BattleManager.hpp"
 #include "BattleState.hpp"
+#include "Pikachu.hpp"
 #include <iostream>
 using namespace std;
 
@@ -30,6 +31,16 @@ void BattleManager::battle(Player& player, WildPokemon& wildPokemon) {
     while (true) {
         // Player's turn to attack
         cout << "\nYour turn!\n";
+
+        // Pikachu* pikachu = dynamic_cast<Pikachu*>(&playerPokemon);
+        // if (pikachu) {
+        //     pikachu->thunderShock(enemyPokemon);
+        // } else {
+        //     playerPokemon.attack(enemyPokemon);
+        // }
+
+
+
         playerPokemon.attack(enemyPokemon);
 
         if (enemyPokemon.isFainted()) {
