@@ -16,7 +16,8 @@ SRC = src/main.cpp \
       src/Pikachu.cpp \
       src/Pidgey.cpp \
       src/Zubat.cpp \
-      src/Caterpie.cpp
+      src/Caterpie.cpp \
+      src/ProfessorOak.cpp
 
 # Object files
 OBJ = $(SRC:.cpp=.o)
