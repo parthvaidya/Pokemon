@@ -9,7 +9,7 @@ public:
     // Method for Pidgey's special attack
     void wingAttack(Pokemon& target);
 
-private:
+private: 
     int wingAttackDamage;
 };
 #endif
