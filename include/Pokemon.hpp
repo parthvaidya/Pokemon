@@ -19,8 +19,8 @@ public:
     std::string getTypeAsString() const;
     void takeDamage(int damage);
     bool isFainted() const;
-    // void attack(Pokemon& target);
-    virtual void attack(Pokemon& target) = 0;
+    void attack(Pokemon& target);
+    // virtual void attack(Pokemon& target) = 0;
 };
 
 #endif

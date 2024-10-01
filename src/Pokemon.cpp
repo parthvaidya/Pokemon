@@ -25,11 +25,11 @@ bool Pokemon::isFainted() const {
     return health <= 0;
 }
 
-// void Pokemon::attack(Pokemon& target) {
-//     int damage = 10; // Fixed damage value for now
-//     std::cout << name << " attacks " << target.name << " for " << damage << " damage!\n";
-//     target.takeDamage(damage);
-// }
+void Pokemon::attack(Pokemon& target) {
+    int damage = 10; // Fixed damage value for now
+    std::cout << name << " attacks " << target.name << " for " << damage << " damage!\n";
+    target.takeDamage(damage);
+}
 
 std::string Pokemon::getTypeAsString() const {
     switch (type) {

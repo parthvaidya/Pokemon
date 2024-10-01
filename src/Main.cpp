@@ -152,19 +152,7 @@ void gameLoop(Player& player) {
 
 
 int main() {
-    // Player player;
-    // ProfessorOak professor;
-    // professor.name = "Professor Oak";
-
-    // professor.greetPlayer(player);
-    // professor.offerPokemonChoices(player);
-    // Utility::clearConsole(); //clear console
-    // professor.explainMainQuest(player);
-
-    // cout << player.name << " chose " << player.chosenPokemon.name << "!\n";
-    // cout << "Pokemon Type: " << player.chosenPokemon.getTypeAsString() << "\n";
-
-    // gameLoop(player);
+    
 
     Player* player = new Player();
     ProfessorOak* professor = new ProfessorOak();
