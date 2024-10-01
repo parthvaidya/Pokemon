@@ -1,15 +1,21 @@
 #ifndef ZUBAT_HPP
 #define ZUBAT_HPP
 #include "Pokemon.hpp"
-
-class Zubat : public Pokemon {
+#include "Move.hpp"
+#include <string>
+#include <iostream>
+class Zubat {
 public:
-    Zubat(std::string p_name, int p_health, int p_supersonicDamage);
+    std::string name;
+    int health;
+    Move move;
 
-    // Method for Zubat's special attack
-    void supersonic(Pokemon& target);
+    Zubat() : name("Zubat"), health(40), move("Leech Life", 15) {}
 
-private:
-    int supersonicDamage;
+    void attack(Zubat& target) {
+        target.health -= move.power;
+        std::cout << name << " used " << move.name << "!\n";
+    }
 };
+
 #endif

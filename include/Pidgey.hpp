@@ -1,15 +1,21 @@
 #ifndef PIDGEY_HPP
 #define PIDGEY_HPP
 #include "Pokemon.hpp"
+#include "Move.hpp"
+#include <string>
+#include <iostream>
 
-class Pidgey : public Pokemon {
+class Pidgey {
 public:
-    Pidgey(std::string p_name, int p_health, int p_wingAttackDamage);
+    std::string name;
+    int health;
+    Move move;
 
-    // Method for Pidgey's special attack
-    void wingAttack(Pokemon& target);
+    Pidgey() : name("Pidgey"), health(45), move("Gust", 25) {}
 
-private: 
-    int wingAttackDamage;
+    void attack(Pidgey& target) {
+        target.health -= move.power;
+        std::cout << name << " used " << move.name << "!\n";
+    }
 };
 #endif
