@@ -7,9 +7,7 @@ public:
     Caterpie(std::string p_name, int p_health, int p_bugBiteDamage);
 
     // Method for Caterpie's special attack
-    // void bugBite(Pokemon& target);
-
-    void attack(Pokemon& target) override;
+    void bugBite(Pokemon& target);
 
 private:
     int bugBiteDamage;

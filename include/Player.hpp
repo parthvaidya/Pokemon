@@ -11,12 +11,11 @@ class Pokemon;
 class Player {
 public:
     std::string name;
-    Pokemon* chosenPokemon; // Changed from Pokemon to Pokemon*
+    Pokemon chosenPokemon;
 
     Player();
-    Player(std::string p_name, Pokemon* p_chosenPokemon);
+    Player(std::string p_name, Pokemon p_chosenPokemon);
     Player(const Player& other);
-    ~Player(); // Destructor to handle dynamic memory
 
     void choosePokemon(PokemonChoice choice);
 };

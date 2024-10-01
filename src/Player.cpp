@@ -1,80 +1,38 @@
 #include "Player.hpp"
 #include "Utility.hpp"
 #include "Pikachu.hpp"
-#include "Zubat.hpp"
-#include "Caterpie.hpp"
-#include "Pidgey.hpp"
 #include <iostream>
 
 Player::Player() : name("Trainer"), chosenPokemon() {}
 
-Player::Player(std::string p_name, Pokemon* p_chosenPokemon)
+Player::Player(std::string p_name, Pokemon p_chosenPokemon) 
     : name(p_name), chosenPokemon(p_chosenPokemon) {}
 
 Player::Player(const Player& other) 
     : name(other.name), chosenPokemon(other.chosenPokemon) {}
 
 
-Player::Player(const Player& other)
-    : name(other.name), chosenPokemon(nullptr) {
-    if (other.chosenPokemon) {
-        // Clone the chosenPokemon based on its actual type
-        if (auto pikachu = dynamic_cast<Pikachu*>(other.chosenPokemon)) {
-            chosenPokemon = new Pikachu(*pikachu);
-        }
-        
-        else if (auto zubat = dynamic_cast<Zubat*>(other.chosenPokemon)) {
-            chosenPokemon = new Zubat(*zubat);
-        }
-        else if (auto pidgey = dynamic_cast<Pidgey*>(other.chosenPokemon)) {
-            chosenPokemon = new Pidgey(*pidgey);
-        }
-        else if (auto caterpie = dynamic_cast<Caterpie*>(other.chosenPokemon)) {
-            chosenPokemon = new Caterpie(*caterpie);
-        }
-        else {
-            std::cout << "Unknown Pokémon type during copy.\n";
-        }
-    }
-}
-
-// Destructor
-Player::~Player() {
-    if (chosenPokemon != nullptr) {
-        delete chosenPokemon;
-        chosenPokemon = nullptr;
-    }
-}
-
-// Method to choose a Pokémon
 void Player::choosePokemon(PokemonChoice choice) {
-    // Delete existing Pokémon if any
-    if (chosenPokemon != nullptr) {
-        delete chosenPokemon;
-        chosenPokemon = nullptr;
-    }
-
-    // Instantiate the chosen Pokémon based on the choice
-    switch (choice) {
-        
+    // Typecast choice to PokemonChoice enum
+    switch (static_cast<PokemonChoice>(choice)) {
+        case PokemonChoice::Charmander:
+            chosenPokemon = Pokemon("Charmander", PokemonType::FIRE, 39);
+            std::cout << "A fiery choice! Charmander is yours!\n";
+            break;
+        case PokemonChoice::Bulbasaur:
+            chosenPokemon = Pokemon("Bulbasaur", PokemonType::GRASS, 45);
+            std::cout << "A fine choice! Bulbasaur is always ready to grow on you!\n";
+            break;
+        case PokemonChoice::Squirtle:
+            chosenPokemon = Pokemon("Squirtle", PokemonType::WATER, 44);
+            std::cout << "Splendid! Squirtle will keep you cool under pressure!\n";
+            break;
         case PokemonChoice::Pikachu:
-            chosenPokemon = new Pikachu("Pikachu", 35, 15); // Example stats
+            chosenPokemon = Pikachu();  // Instantiate Pikachu
             std::cout << "Pikachu is the best from the rest.\n";
             break;
-        case PokemonChoice::Zubat:
-            chosenPokemon = new Zubat("Zubat", 35, 10); // Example stats
-            std::cout << "Zubat joins your team!\n";
-            break;
-        case PokemonChoice::Pidgey:
-            chosenPokemon = new Pidgey("Pidgey", 40, 12); // Example stats
-            std::cout << "Pidgey flutters onto your team!\n";
-            break;
-        case PokemonChoice::Caterpie:
-            chosenPokemon = new Caterpie("Caterpie", 35, 8); // Example stats
-            std::cout << "Caterpie crawls onto your team!\n";
-            break;
         default:
-            chosenPokemon = new Pikachu("Pikachu", 35, 15); // Default choice
+            chosenPokemon = Pokemon("Pikachu", PokemonType::ELECTRIC, 40);
             std::cout << "Pikachu is the best from the rest.\n";
             break;
     }
