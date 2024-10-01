@@ -4,8 +4,9 @@
 #include <iostream>
 
 // Constructor Initialization with specific damage attribute for Wing Attack
-Pidgey::Pidgey(std::string p_name, int p_health, int p_wingAttackDamage)
-    : Pokemon(p_name, PokemonType::FLYING, p_health), wingAttackDamage(p_wingAttackDamage) {}
+Pidgey::Pidgey(std::string p_name, int p_health, Move p_move)
+    : Pokemon(p_name, PokemonType::NORMAL, p_health),
+      move(p_move) {}
 
 // Wing Attack Method Implementation
 void Pidgey::wingAttack(Pokemon& target) {

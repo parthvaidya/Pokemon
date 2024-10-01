@@ -27,10 +27,7 @@ void Player::choosePokemon(PokemonChoice choice) {
             chosenPokemon = Pokemon("Squirtle", PokemonType::WATER, 44);
             std::cout << "Splendid! Squirtle will keep you cool under pressure!\n";
             break;
-        case PokemonChoice::Pikachu:
-            chosenPokemon = Pikachu();  // Instantiate Pikachu
-            std::cout << "Pikachu is the best from the rest.\n";
-            break;
+        
         default:
             chosenPokemon = Pokemon("Pikachu", PokemonType::ELECTRIC, 40);
             std::cout << "Pikachu is the best from the rest.\n";

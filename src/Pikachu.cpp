@@ -6,8 +6,9 @@
 #include <iostream>
 
 // Constructor Implementation
-Pikachu::Pikachu(std::string p_name, int p_health, int p_thunderShockDamage)
-    : Pokemon(p_name, PokemonType::ELECTRIC, p_health), thunderShockDamage(p_thunderShockDamage) {}
+Pikachu::Pikachu(std::string p_name, int p_health, Move p_move)
+    : Pokemon(p_name, PokemonType::ELECTRIC, p_health),
+      move(p_move) {}
 
 // Thunder Shock Method Implementation
 void Pikachu::thunderShock(Pokemon& target) {
