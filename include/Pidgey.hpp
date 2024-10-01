@@ -7,8 +7,8 @@ public:
     Pidgey(std::string p_name, int p_health, int p_wingAttackDamage);
 
     // Method for Pidgey's special attack
-    void wingAttack(Pokemon& target);
-
+    // void wingAttack(Pokemon& target);
+    void attack(Pokemon& target) override;
 private: 
     int wingAttackDamage;
 };

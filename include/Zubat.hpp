@@ -7,7 +7,8 @@ public:
     Zubat(std::string p_name, int p_health, int p_supersonicDamage);
 
     // Method for Zubat's special attack
-    void supersonic(Pokemon& target);
+    // void supersonic(Pokemon& target);
+    void attack(Pokemon& target) override;
 
 private:
     int supersonicDamage;
