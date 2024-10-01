@@ -12,5 +12,6 @@ public:
 
     // Unique attack method
     void thunderShock(Pokemon& target);
+    void attack(Pokemon& target) override;
 };
 #endif
