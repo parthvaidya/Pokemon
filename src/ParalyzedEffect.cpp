@@ -35,3 +35,6 @@ bool ParalyzedEffect::turnEndEffect(Pokemon& target) {
     return true;  // Pokémon can move
 }
 
+// void ParalyzedEffect::clearEffect(Pokemon* target) {
+//     std::cout << target->getName() << " is no longer paralyzed!\n";
+// }
