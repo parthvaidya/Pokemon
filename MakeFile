@@ -1,0 +1,43 @@
+# Makefile for Pokemon Game
+
+# Compiler
+CXX = g++
+
+# Compiler flags
+CXXFLAGS = -I include -Wall -Wextra -std=c++11
+
+# Source files
+SRC = src/main.cpp \
+      src/Utility.cpp \
+      src/Player.cpp \
+      src/Pokemon.cpp \
+      src/WildEncounterManager.cpp \
+      src/BattleManager.cpp \
+      src/Pikachu.cpp \
+      src/Pidgey.cpp \
+      src/Zubat.cpp \
+      src/Caterpie.cpp
+
+# Object files
+OBJ = $(SRC:.cpp=.o)
+
+# Executable
+TARGET = Main.exe
+
+# Default target
+all: $(TARGET)
+
+# Build the executable
+$(TARGET): $(OBJ)
+	$(CXX) -o $@ $^
+
+# Rule for object files
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+# Clean up
+clean:
+	rm -f $(OBJ) $(TARGET)
+
+# Phony targets
+.PHONY: all clean
